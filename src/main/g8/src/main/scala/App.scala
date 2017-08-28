@@ -19,7 +19,7 @@ object $name$ extends JSApp {
         count += 1
 
         val div = document.createElement("div")
-        val text = document.createTextNode(s"Clicked $count times.")
+        val text = document.createTextNode(s"Clicked \$count times.")
 
         div.appendChild(text)
         document.body.appendChild(div)
