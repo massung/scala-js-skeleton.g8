@@ -1,28 +1,27 @@
-name := Settings.Name
-version := Settings.Version
+name := "$name;format="Camel"$"
+version := "$version$"
 
 // what version of scala to use
 scalaVersion := "$scala_version$"
 
 // scala-js client project
 lazy val app = project.in(file("."))
-    .enablePlugins(ScalaJSPlugin)
+    .enablePlugins(ScalaJSPlugin, ScalaJSBundlerPlugin)
     .settings(
         libraryDependencies ++= Seq(
             "org.scala-js" %%% "scalajs-dom" % "0.9.1"
         ),
 
-        jsDependencies ++= Seq(
+        // nodejs modules
+        npmDependencies in Compile ++= Seq(
             // TODO:
         ),
 
-        // where jar resources will be pulled from
-        resourceDirectory := baseDirectory.value / "web",
+        // root webpack config file
+        webpackConfigFile := Some(baseDirectory.value / "webpack.config.js"),
 
-        // copy the js compiled to the server resource path
-        artifactPath in (Compile, fastOptJS) := resourceDirectory.value / "js" / (Settings.Name + "-fastopt.js"),
-        artifactPath in (Compile, fullOptJS) := resourceDirectory.value / "js" / (Settings.Name + "-fullopt.js"),
-        artifactPath in (Compile, packageJSDependencies) := resourceDirectory.value / "js" / (Settings.Name + "-jsdeps.js"),
+        // use yarn over npm
+        useYarn := $use_yarn.truthy$,
 
         // put all js dependencies into a single output file
         skip in packageJSDependencies := false,
@@ -31,5 +30,5 @@ lazy val app = project.in(file("."))
         scalaJSUseMainModuleInitializer := true,
 
         // emit source maps in production
-        emitSourceMaps in fullOptJS := true
+        emitSourceMaps in fullOptJS := false
     )
