@@ -26,7 +26,7 @@ lazy val app = project.in(file("."))
         ),
 
         // optionally use yarn over npm
-        useYarn := $if(use_yarn)$true$else$false$endif$,
+        useYarn := $use_yarn$,
 
         // put all js dependencies into a single output file
         skip in packageJSDependencies := false,
