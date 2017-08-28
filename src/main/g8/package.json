@@ -1,0 +1,8 @@
+{
+  "name": "skeleton",
+  "version": "0.1.0",
+  "dependencies": {
+    "electron": "^1.7.5",
+    "express": "^4.15.4"
+  }
+}

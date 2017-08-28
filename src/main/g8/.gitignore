@@ -1,0 +1,19 @@
+# ensime
+.ensime_cache/
+
+# nodejs modules
+node_modules/
+
+# sbt project files
+project/project/
+project/target/
+
+# app folders
+app/client/target/
+app/server/target/
+
+# target folder
+target/
+
+# log files
+*.log
