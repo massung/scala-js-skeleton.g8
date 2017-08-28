@@ -1,5 +1,5 @@
 {
-  "name": "skeleton",
+  "name": "$name;format="Camel"$",
   "version": "0.1.0",
   "dependencies": {
     "electron": "^1.7.5",

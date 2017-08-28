@@ -28,7 +28,7 @@ Next, launch [SBT][sbt] and build the source for the skeleton.
 
 ```
 $ sbt
-sbt:skelton> fastOptJS::webpack
+sbt> fastOptJS::webpack
 [success] Total time: ...
 ```
 
@@ -39,19 +39,28 @@ Finally, to run your app, there are a few options:
 * Run via [Electron][electron]
 * Serve via [Webpack Dev Server][server]
 
-If using [VSCode][vscode], there are already 3 configurations pre-created for you: Run, Debug, and Serve. Otherwise, you can manually run/debug via the command line:
+For [Electron][electron] (if using [VSCode][vscode]) there are already configurations pre-created for you that will launch you app: Run and Debug. Otherwise, you can manually run/debug via the command line:
 
 ```
 $ ./node_modules/.bin/electron main.js [debug]
 ```
 
-Or you can start an [Express][express] web server via the command line:
+If you pass the `debug` argument on the command line, then the webkit debugger will be opened as well. From there, you should have access to your [Scala][scala] code, as a map file was generated for it.
+
+If you perfer to serve the files with [Webpack][webpack], then you can do so with [SBT][sbt]:
 
 ```
-$ node server.js [port=8080]
+sbt> fastOptJS::startWebpackDevServer
+sbt> ~fastOptJS
 ```
 
-If you pass the `debug` command line argument to [Electron][electron] then the webkit debugger will be opened as well. From there, you should have access to your [Scala][scala] code, as a map file was generated for it.
+And now the server should be up and running on port 8080. When you want to stop the server, execute:
+
+```
+sbt> fastOptJS::stopWebpackDevServer
+```
+
+That's it!
 
 ## Structure
 
@@ -59,28 +68,10 @@ Here is a high-level breakdown of the skeleton source files:
 
 * **project/** contains [SBT][sbt] plugins and settings
 * **src/** contains all the [ScalaJS][scalajs] app code
-* **web/** contains all the web server resources
+* **web/** contains all the static resources, and your app bundle
 * **main.js** is the [Electron][electron] application code
-* **server.js** is the [Express][express] web server code
 
 Everything in **web/** will be exposed to your application at runtime. And the [ScalaJS][scalajs] app will be compiled to JavaScript to **web/js/** folder.
-
-## FAQ
-
-*How can I change the name of my project and the compiled js file?*
-
-There are two places:
-
-* project/settings.scala
-* package.json
-
-*How do I change the window size of the app?*
-
-Look at `main.js`. The `width` and `height` (along with other options) are specified there.
-
-*Ensime isn't there, how do I get it?*
-
-First, head to [the Ensime website][ensime] and see how to install it for all your [SBT][sbt] projects. Keep in mind that - as of this writing - [Ensime][ensime] doesn't yet work for [SBT][sbt] 1.0, on which this project is based.
 
 [g8]:           http://www.foundweekends.org/giter8
 [scala]:        http://www.scala.org
