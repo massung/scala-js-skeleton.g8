@@ -1,6 +1,6 @@
 # ScalaJS Skeleton App
 
-This is a [Giter8][g8] skeleton for [ScalaJS][scalajs]. It is put together so that [ScalaJSBundler][bundler] works with a custom `webpack.config` file out-of-the-box and the application can be launched with [Electron][electron]. Launch configurations are pre-created for the [Visual Studio Code][vscode] editorg. But, use of it is not required.
+This is a [Giter8][g8] skeleton for [ScalaJS][scalajs]. It is put together so that [ScalaJSBundler][bundler] works with a custom `webpack.config` file out-of-the-box and the application can be launched with [Electron][electron] or served with [Express][express]. Launch configurations are pre-created for the [Visual Studio Code][vscode] editor. But, use of it is not required.
 
 ## Getting Started
 
@@ -27,9 +27,7 @@ $ yarn install
 Next, launch [SBT][sbt] and build the source for the skeleton.
 
 ```
-$ sbt
 sbt> fastOptJS::webpack
-[success] Total time: ...
 ```
 
 At this point, you application's `-bundle.js` file has been built and resides in the `web/js` folder.
