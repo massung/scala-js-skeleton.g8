@@ -16,7 +16,7 @@ Next, run [SBT][sbt] on the command line to initialize a new sekeleton.
 $ sbt new massung/scala-js-skeleton.g8
 ```
 
-Answer the questions that follow and your project should be ready to dive into. If you chose not to install [Yarn][yarn], then be sure and answer "no" when asked if [Yarn][yarn] should be used.
+Answer the questions that follow and your project should be ready to dive into. If you chose not to install [Yarn][yarn], then be sure and answer "false" when asked if [Yarn][yarn] should be used.
 
 Once the skeleton has been cloned, `cd` into it and install all the [NodeJS][nodejs] dependencies with [Yarn][yarn] (or [npm][npm]).
 
