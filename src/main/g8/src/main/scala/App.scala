@@ -6,7 +6,7 @@ import js.annotation.JSExportTopLevel
 import org.scalajs.dom
 import dom.document
 
-object $name$ extends JSApp {
+object $name;format="Camel"$ extends JSApp {
     var count: Int = 0
 
     // Called on load because scalaJSUseMainModuleInitializer is set
