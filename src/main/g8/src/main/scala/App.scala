@@ -11,7 +11,7 @@ object $name;format="Camel"$ extends JSApp {
 
     // Called on load because scalaJSUseMainModuleInitializer is set
     // to true in the build.sbt file.
-    def main(args: Array[String]): Unit = ()
+    def main(): Unit = ()
 
     // Expose this method to other JS routines and HTML.
     @JSExportTopLevel("addMsg")

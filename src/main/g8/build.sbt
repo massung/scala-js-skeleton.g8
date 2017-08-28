@@ -13,15 +13,15 @@ lazy val app = project.in(file("."))
         ),
 
         jsDependencies ++= Seq(
-            "org.webjars.npm" % "rxjs" % "5.4.3"
+            // TODO:
         ),
 
         // where jar resources will be pulled from
         resourceDirectory := baseDirectory.value / "web",
 
         // copy the js compiled to the server resource path
-        artifactPath in (Compile, fastOptJS) := resourceDirectory.value / "js" / (Settings.Name + ".js"),
-        artifactPath in (Compile, fullOptJS) := resourceDirectory.value / "js" / (Settings.Name + ".js"),
+        artifactPath in (Compile, fastOptJS) := resourceDirectory.value / "js" / (Settings.Name + "-fastopt.js"),
+        artifactPath in (Compile, fullOptJS) := resourceDirectory.value / "js" / (Settings.Name + "-fullopt.js"),
         artifactPath in (Compile, packageJSDependencies) := resourceDirectory.value / "js" / (Settings.Name + "-jsdeps.js"),
 
         // put all js dependencies into a single output file
