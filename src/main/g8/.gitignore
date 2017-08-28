@@ -8,10 +8,6 @@ node_modules/
 project/project/
 project/target/
 
-# app folders
-app/client/target/
-app/server/target/
-
 # target folder
 target/
 

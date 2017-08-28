@@ -1,8 +1,6 @@
 # ScalaJS Skeleton App
 
-This is a trivial skeleton app for [ScalaJS][scalajs] that can be launched as a desktop application with [Electron][electron] or hosted with [Express][express]. 
-
-It's put together for use with the [Visual Studio Code][vscode] editor, along with integration for launching and debugging. But, use of [VSCode][vscode] is not required.
+This is a [Giter8][g8] skeleton for [ScalaJS][scalajs]. It is put together so that [ScalaJSBundler][bundler] works with a custom `webpack.config` file out-of-the-box and the application can be launched with [Electron][electron]. Launch configurations are pre-created for the [Visual Studio Code][vscode] editorg. But, use of it is not required.
 
 ## Getting Started
 
@@ -10,7 +8,7 @@ Download an install the following applications:
 
 * [SBT][sbt]
 * [NodeJS][nodejs]
-* [Yarn][yarn]
+* [Yarn][yarn] (optional)
 
 Next, run [SBT][sbt] on the command line to initialize a new sekeleton.
 
@@ -18,28 +16,28 @@ Next, run [SBT][sbt] on the command line to initialize a new sekeleton.
 $ sbt new massung/scala-js-skeleton.g8
 ```
 
-Answer the questions that follow and your project should be ready to dive into.
+Answer the questions that follow and your project should be ready to dive into. If you chose not to install [Yarn][yarn], then be sure and answer "no" when asked if [Yarn][yarn] should be used.
 
-Once the skeleton has been cloned, `cd` into it and install all the [NodeJS][nodejs] dependencies with [Yarn][yarn].
+Once the skeleton has been cloned, `cd` into it and install all the [NodeJS][nodejs] dependencies with [Yarn][yarn] (or [npm][npm]).
 
 ```
 $ yarn install
 ```
 
-Next, launch [SBT][sbt] and build the source for the skeleton. If you are using [VSCode][vscode] and have the [Scala Language Server][extension] extension, this can be done from within the editor (`CTRL+SHIFT+P`), otherwise just run it from a terminal:
+Next, launch [SBT][sbt] and build the source for the skeleton.
 
 ```
 $ sbt
-sbt:skelton> fastOptJS
-[success] Total time: 2 s, completed...
+sbt:skelton> fastOptJS::webpack
+[success] Total time: ...
 ```
 
-At this point, `skeleton-fastopt.js` is built and resides in the `web/js` folder. If you use [Ensime][ensime], you can also run `ensimeConfig` now.
+At this point, you application's `-bundle.js` file has been built and resides in the `web/js` folder.
 
 Finally, to run your app, there are a few options:
 
-* Run/debug via [Electron][electron]
-* Serve via [Express][express]
+* Run via [Electron][electron]
+* Serve via [Webpack Dev Server][server]
 
 If using [VSCode][vscode], there are already 3 configurations pre-created for you: Run, Debug, and Serve. Otherwise, you can manually run/debug via the command line:
 
@@ -84,14 +82,17 @@ Look at `main.js`. The `width` and `height` (along with other options) are speci
 
 First, head to [the Ensime website][ensime] and see how to install it for all your [SBT][sbt] projects. Keep in mind that - as of this writing - [Ensime][ensime] doesn't yet work for [SBT][sbt] 1.0, on which this project is based.
 
+[g8]:           http://www.foundweekends.org/giter8
 [scala]:        http://www.scala.org
 [scalajs]:      http://www.scala-js.org
+[bundler]:      https://scalacenter.github.io/scalajs-bundler
 [nodejs]:       https://nodejs.org
 [electron]:     https://electron.atom.io
-[express]:      http://expressjs.com
-[yarn]:         https://yarnpkg.com/en/
+[webpack]:      https://webpack.js.org
+[server]:       https://github.com/webpack/webpack-dev-server
+[yarn]:         https://yarnpkg.com/en
+[npm]:          https://www.npmjs.com
 [zip]:          https://github.com/massung/scala-js-skeleton/archive/v1.0.zip
 [sbt]:          http://www.scala-sbt.org
 [vscode]:       https://code.visualstudio.com
 [extension]:    https://marketplace.visualstudio.com/items?itemName=dragos.scala-lsp
-[ensime]:       http://ensime.org
