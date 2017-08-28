@@ -32,6 +32,15 @@
             ],
             "outFiles": [],
             "sourceMaps": true
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Serve",
+            "program": "\${workspaceRoot}/server.js",
+            "cwd": "\${workspaceRoot}",
+            "outFiles": [],
+            "sourceMaps": true
         }
     ]
 }
