@@ -1,4 +1,4 @@
-# $name;format"Camel"$
+# $name;format="Camel"$
 
 Brief introduction to my new ScalaJS application...
 
