@@ -1,5 +1,5 @@
 {
-  "name": "$name;format="Camel"$",
+  "name": "$name;format="norm"$",
   "version": "0.1.0",
   "dependencies": {
     "electron": "^1.7.5",

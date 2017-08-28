@@ -5,6 +5,6 @@ module.exports = require('./scalajs.webpack.config');
 
 // modify the output directory where the bundle.js file is written
 module.exports.output = {
-    'filename': '$name;format="norm"$-bundle.js',
+    'filename': '$name;format="Camel"$-bundle.js',
     'path': '../../../../web/js',
 };
