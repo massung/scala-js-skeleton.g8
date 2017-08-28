@@ -18,10 +18,10 @@ const BrowserWindow = electron.BrowserWindow;
 var mainWindow;
 
 // Create the browser window.
-function createWindow () {
+function createWindow() {
     mainWindow = new BrowserWindow({
         icon: `web/favicon.png`,
-        width: 800, 
+        width: 800,
         height: 600,
         frame: true,
         useContentSize: true,
@@ -34,14 +34,14 @@ function createWindow () {
     });
 
     // Load the index.html of the app.
-    mainWindow.loadURL(`file://${__dirname}/web/index.html`);
-    
+    mainWindow.loadURL(`file://\${__dirname}/web/index.html`);
+
     // Disable the default menu bar.
     mainWindow.setMenu(null);
 
     // Open the DevTools in debug mode.
     if (argv[0] === 'debug') {
-        mainWindow.webContents.openDevTools({mode: "detach"});
+        mainWindow.webContents.openDevTools({ mode: "detach" });
     }
 
     // Emitted when the window is closed.
@@ -69,7 +69,7 @@ app.on('ready', createWindow);
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
-    
+
     // On OS X it is common for applications and their menu bar
     // to stay active until the user quits explicitly with Cmd + Q.
     //
