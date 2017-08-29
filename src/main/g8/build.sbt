@@ -26,7 +26,11 @@ lazy val app = project.in(file("."))
         ),
 
         // optionally use yarn over npm
-        useYarn := $use_yarn$,
+        $if(use_yarn.truthy)$
+        useYarn := true,
+        $else$
+        useYarn := false,
+        $endif$
 
         // put all js dependencies into a single output file
         skip in packageJSDependencies := false,
@@ -34,6 +38,6 @@ lazy val app = project.in(file("."))
         // call the `main` method after the js is loaded
         scalaJSUseMainModuleInitializer := true,
 
-        // emit source maps in production
+        // do not emit source maps in production
         emitSourceMaps in fullOptJS := false
     )
