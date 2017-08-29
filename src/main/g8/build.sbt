@@ -20,17 +20,8 @@ lazy val app = project.in(file("."))
         // root webpack config file
         webpackConfigFile := Some(baseDirectory.value / "webpack.config.js"),
 
-        // webpack server settings
-        webpackDevServerExtraArgs := Seq(
-            "--inline" // reload on any change
-        ),
-
         // optionally use yarn over npm
-        $if(use_yarn.truthy)$
-        useYarn := true,
-        $else$
-        useYarn := false,
-        $endif$
+        useYarn := $use_yarn$,
 
         // put all js dependencies into a single output file
         skip in packageJSDependencies := false,
