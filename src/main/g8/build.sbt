@@ -19,7 +19,7 @@ libraryDependencies ++= Seq(
 
 // javascript sources
 jsDependencies ++= Seq(
-    // e.g. "org.webjars.npm" % "phaser-ce" % "2.8.3"
+    // e.g. "org.webjars" % "vue" % "2.4.2" / "vue.js" commonJSName "Vue"
 )
 
 // resources are in web directory
