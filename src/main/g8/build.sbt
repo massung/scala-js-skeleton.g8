@@ -1,27 +1,33 @@
-name := "$name;format="Camel"$"
-version := "$version$"
+name := Settings.Name
+version := Settings.Version
 
 // what version of scala to use
 scalaVersion := "$scala_version$"
 
-// scala-js client project
+// add repositories to pull from
+resolvers ++= Seq(
+    // TODO:
+)
+
 lazy val app = project.in(file("."))
-    .enablePlugins(ScalaJSPlugin, ScalaJSBundlerPlugin)
+    .enablePlugins(ScalaJSPlugin)
     .settings(
         libraryDependencies ++= Seq(
             "org.scala-js" %%% "scalajs-dom" % "0.9.1"
         ),
 
-        // nodejs modules
-        npmDependencies in Compile ++= Seq(
+        // webjar sources
+        jsDependencies ++= Seq(
             // TODO:
-        ),
+        )
 
-        // root webpack config file
-        webpackConfigFile := Some(baseDirectory.value / "webpack.config.js"),
+        // resources are in web directory
+        resourceDirectory := baseDirectory.value / "web",
 
-        // optionally use yarn over npm
-        useYarn := $use_yarn$,
+        // write files to to web/js
+        artifactPath in (Compile, fastOptJS) := resourceDirectory.value / "js" / "app-fastopt.js",
+        artifactPath in (Compile, fullOptJS) := resourceDirectory.value / "js" / "app-fullopt.js",
+        artifactPath in (Compile, packageJSDependencies) := resourceDirectory.value / "js" / "app-jsdeps.js",
 
         // put all js dependencies into a single output file
         skip in packageJSDependencies := false,

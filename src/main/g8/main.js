@@ -25,7 +25,7 @@ function createWindow() {
         height: 600,
         frame: true,
         useContentSize: true,
-        resizable: false,
+        resizable: true,
         fullscreen: false,
         centered: true,
         autoHideMenuBar: true,
