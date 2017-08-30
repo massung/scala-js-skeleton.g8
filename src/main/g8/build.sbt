@@ -1,39 +1,40 @@
+enablePlugins(ScalaJSPlugin)
+
+// project name/version
 name := "$name;format="Camel"$"
 version := "$version$"
 
 // what version of scala to use
 scalaVersion := "$scala_version$"
 
-// scala-js client project
-lazy val app = project.in(file("."))
-    .enablePlugins(ScalaJSPlugin, ScalaJSBundlerPlugin)
-    .settings(
-        libraryDependencies ++= Seq(
-            "org.scala-js" %%% "scalajs-dom" % "0.9.1"
-        ),
+// add repositories to pull from
+resolvers ++= Seq(
+    // e.g. "jitpack" at "https://jitpack.io"
+)
 
-        // nodejs modules
-        npmDependencies in Compile ++= Seq(
-            // TODO:
-        ),
+// libraries
+libraryDependencies ++= Seq(
+    // e.g. "org.scala-js" %%% "scalajs-dom" % "0.9.1"
+)
 
-        // root webpack config file
-        webpackConfigFile := Some(baseDirectory.value / "webpack.config.js"),
+// javascript sources
+jsDependencies ++= Seq(
+    // e.g. "org.webjars.npm" % "phaser-ce" % "2.8.3"
+)
 
-        // webpack server settings
-        webpackDevServerExtraArgs := Seq(
-            "--inline" // reload on any change
-        ),
+// resources are in web directory
+resourceDirectory := baseDirectory.value / "web"
 
-        // optionally use yarn over npm
-        useYarn := $use_yarn$,
+// write files to to web/js
+artifactPath in (Compile, fastOptJS) := resourceDirectory.value / "js" / s"\${name.value}-fastopt.js"
+artifactPath in (Compile, fullOptJS) := resourceDirectory.value / "js" / s"\${name.value}-fullopt.js"
+artifactPath in (Compile, packageJSDependencies) := resourceDirectory.value / "js" / s"\${name.value}-jsdeps.js"
 
-        // put all js dependencies into a single output file
-        skip in packageJSDependencies := false,
+// put all js dependencies into a single output file
+skip in packageJSDependencies := false
 
-        // call the `main` method after the js is loaded
-        scalaJSUseMainModuleInitializer := true,
+// call the `main` method after the js is loaded
+scalaJSUseMainModuleInitializer := true
 
-        // emit source maps in production
-        emitSourceMaps in fullOptJS := false
-    )
+// do not emit source maps in production
+emitSourceMaps in fullOptJS := false
