@@ -26,9 +26,9 @@ jsDependencies ++= Seq(
 resourceDirectory := baseDirectory.value / "web"
 
 // write files to to web/js
-artifactPath in (Compile, fastOptJS) := resourceDirectory.value / "js" / s"${name.value}-fastopt.js"
-artifactPath in (Compile, fullOptJS) := resourceDirectory.value / "js" / s"${name.value}-fullopt.js"
-artifactPath in (Compile, packageJSDependencies) := resourceDirectory.value / "js" / s"${name.value}-jsdeps.js"
+artifactPath in (Compile, fastOptJS) := resourceDirectory.value / "js" / s"\${name.value}-fastopt.js"
+artifactPath in (Compile, fullOptJS) := resourceDirectory.value / "js" / s"\${name.value}-fullopt.js"
+artifactPath in (Compile, packageJSDependencies) := resourceDirectory.value / "js" / s"\${name.value}-jsdeps.js"
 
 // put all js dependencies into a single output file
 skip in packageJSDependencies := false
