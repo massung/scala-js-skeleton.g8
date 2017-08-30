@@ -28,7 +28,7 @@ Next, launch [SBT][sbt] and build the source for the skeleton.
 sbt> fastOptJS
 ```
 
-At this point, you application's compiled `.js` file has been built and resides in the `web/js` folder along with a `.map.js` file and any dependencies.
+At this point, you application's compiled `.js` file has been built and resides in the `web/js` folder along with a `.js.map` file and any other bundled, javascript dependencies.
 
 To run your app, there are a few options:
 
