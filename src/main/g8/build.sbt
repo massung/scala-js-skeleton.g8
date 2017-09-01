@@ -7,19 +7,25 @@ version := "$version$"
 // what version of scala to use
 scalaVersion := "$scala_version$"
 
+// compiler flags
+scalacOptions ++= Seq(
+  "-P:scalajs:sjsDefinedByDefault",
+  "-feature"
+)
+
 // add repositories to pull from
 resolvers ++= Seq(
-    // e.g. "jitpack" at "https://jitpack.io"
+  // e.g. "jitpack" at "https://jitpack.io"
 )
 
 // libraries
 libraryDependencies ++= Seq(
-    // e.g. "org.scala-js" %%% "scalajs-dom" % "0.9.1"
+  // e.g. "org.scala-js" %%% "scalajs-dom" % "0.9.1"
 )
 
 // nodejs sources
 npmDependencies in Compile ++= Seq(
-    // e.g. "snabbdom" -> "0.5.3"
+  // e.g. "snabbdom" -> "0.5.3"
 )
 
 // root webpack config file
