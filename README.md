@@ -13,8 +13,10 @@ Download an install the following applications:
 Next, run [SBT][sbt] on the command line to initialize a new sekeleton.
 
 ```
-$ sbt new massung/scala-js-skeleton.g8
+$ sbt new massung/scala-js-skeleton.g8 [-b webpack]
 ```
+
+*NOTE: If you'd like a skeleton that makes use of the [ScalaJSBundler][bundler] plugin and [Webpack][webpack], then use the `-b webpack` branch of the repository.*
 
 Once the skeleton has been created, `cd` into it and install all the [NodeJS][nodejs] dependencies with [Yarn][yarn] (or [npm][npm]).
 
@@ -27,6 +29,8 @@ Next, launch [SBT][sbt] and build the source for the skeleton.
 ```
 sbt> fastOptJS
 ```
+
+*Note: if you are using the webpack branch, run `fastOptJS::webpack` instead.*
 
 At this point, you application's compiled `.js` file has been built and resides in the `web/js` folder along with a `.js.map` file and any other bundled, javascript dependencies.
 
@@ -68,6 +72,8 @@ Everything in **web/** will be exposed to your application at runtime. And the [
 [g8]:           http://www.foundweekends.org/giter8
 [scala]:        http://www.scala.org
 [scalajs]:      http://www.scala-js.org
+[bundler]:      https://scalacenter.github.io/scalajs-bundler
+[webpack]:      https://webpack.github.io
 [nodejs]:       https://nodejs.org
 [electron]:     https://electron.atom.io
 [express]:      http://expressjs.com
