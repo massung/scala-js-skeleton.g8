@@ -7,19 +7,25 @@ version := "$version$"
 // what version of scala to use
 scalaVersion := "$scala_version$"
 
+// compiler flags
+scalacOptions ++= Seq(
+  "-P:scalajs:sjsDefinedByDefault",
+  "-feature"
+)
+
 // add repositories to pull from
 resolvers ++= Seq(
-    // e.g. "jitpack" at "https://jitpack.io"
+  // e.g. "jitpack" at "https://jitpack.io"
 )
 
 // libraries
 libraryDependencies ++= Seq(
-    // e.g. "org.scala-js" %%% "scalajs-dom" % "0.9.1"
+  // e.g. "org.scala-js" %%% "scalajs-dom" % "0.9.1"
 )
 
 // javascript sources
 jsDependencies ++= Seq(
-    // e.g. "org.webjars" % "vue" % "2.4.2" / "vue.js" commonJSName "Vue"
+  // e.g. "org.webjars" % "vue" % "2.4.2" / "vue.js" commonJSName "Vue"
 )
 
 // resources are in web directory
