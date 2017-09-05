@@ -54,11 +54,19 @@ function createWindow() {
         mainWindow = null;
     });
 
+    // Handle navigation to another link.
+    let handleRedirect = (e, url) => {
+        if (url != mainWindow.webContents.getURL()) {
+            e.preventDefault();
+
+            // Launch a new browser window.
+            shell.openExternal(url);
+        }
+    }
+
     // Open URLs in the desktop browser.
-    mainWindow.webContents.on('new-window', (event, url) => {
-        event.preventDefault();
-        shell.openExternal(url);
-    });
+    mainWindow.webContents.on('will-navigate', handleRedirect);
+    mainWindow.webContents.on('new-window', handleRedirect);
 }
 
 // This method will be called when Electron has finished
