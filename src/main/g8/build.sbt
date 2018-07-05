@@ -10,17 +10,19 @@ scalaVersion := "$scala_version$"
 // compiler flags
 scalacOptions ++= Seq(
   "-P:scalajs:sjsDefinedByDefault",
-  "-feature"
+  "-feature",
+  "-Ypartial-unification",
+  "-Ywarn-value-discard"
 )
 
 // add repositories to pull from
 resolvers ++= Seq(
-  // e.g. "jitpack" at "https://jitpack.io"
+  "jitpack" at "https://jitpack.io"
 )
 
 // libraries
 libraryDependencies ++= Seq(
-  // e.g. "org.scala-js" %%% "scalajs-dom" % "0.9.1"
+  // e.g. "org.scala-js" %%% "scalajs-dom" % "0.9.2"
 )
 
 // javascript sources
