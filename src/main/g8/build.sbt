@@ -17,7 +17,7 @@ scalacOptions ++= Seq(
 
 // add repositories to pull from
 resolvers ++= Seq(
-  "jitpack" at "https://jitpack.io"
+  // e.g. "jitpack" at "https://jitpack.io"
 )
 
 // libraries
