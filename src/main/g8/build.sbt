@@ -1,7 +1,7 @@
 enablePlugins(ScalaJSPlugin)
 
 // project name/version
-name := "$name;format="Camel"$"
+name := "$name;format="norm"$"
 version := "$version$"
 
 // what version of scala to use
