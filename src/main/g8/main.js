@@ -31,6 +31,9 @@ function createWindow() {
         autoHideMenuBar: true,
         webgl: true,
         webaudio: true,
+        webPreferences: {
+            nodeIntegration: false,
+        },
     });
 
     // Load the index.html of the app.
